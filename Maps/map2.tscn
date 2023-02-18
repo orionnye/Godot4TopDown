@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1n04u7mflv7e"]
+
+[ext_resource type="PackedScene" uid="uid://txqr0i4u682l" path="res://GameObjects/Physics/PlaneFloor.tscn" id="1_n3cla"]
+[ext_resource type="PackedScene" uid="uid://dn7dlgssmoix8" path="res://GameObjects/Physics/Ball.tscn" id="2_1vihq"]
+[ext_resource type="PackedScene" uid="uid://cb8xdcme2pgpy" path="res://GameObjects/Player/Player.tscn" id="3_1o4br"]
+[ext_resource type="PackedScene" uid="uid://u60rwwhhdo76" path="res://GameObjects/Turret/Turret.tscn" id="4_cwpex"]
+[ext_resource type="PackedScene" uid="uid://d2do6wiqhtn8r" path="res://GameObjects/Characters/Golems/mudGolem.tscn" id="5_51oau"]
+
+[node name="map2" type="Node3D"]
+
+[node name="PlaneFloor" parent="." instance=ExtResource("1_n3cla")]
+process_mode = 3
+disable_mode = 2
+
+[node name="Ball" parent="." instance=ExtResource("2_1vihq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47469, 1.7762)
+
+[node name="Player" parent="." instance=ExtResource("3_1o4br")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.004, 0)
+
+[node name="Turret" parent="." instance=ExtResource("4_cwpex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68986, 0, -0.238693)
+
+[node name="mudGolem" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_51oau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70816, 1.68898, 0.872149)
+target = NodePath("../Player")
+accelRate = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.577, -3.8793, -148.185)
+light_energy = 3.858
+light_volumetric_fog_energy = 3.631

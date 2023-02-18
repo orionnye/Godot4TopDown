@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://3a0hivyihoi6"]
+
+[ext_resource type="Script" path="res://Scripts/generateTiles.gd" id="1_f5lu4"]
+[ext_resource type="PackedScene" uid="uid://cb8xdcme2pgpy" path="res://GameObjects/Player/Player.tscn" id="2_rs8ph"]
+[ext_resource type="PackedScene" uid="uid://d2do6wiqhtn8r" path="res://GameObjects/Characters/Golems/mudGolem.tscn" id="4_8n2oo"]
+[ext_resource type="PackedScene" uid="uid://gt450rmdfbyc" path="res://GameObjects/Characters/Spawner/GolemSpawner.tscn" id="4_qxivp"]
+
+[node name="map1" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+script = ExtResource("1_f5lu4")
+dimensions = Vector2(50, 50)
+centered = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.368968, 0.929442, 0, -0.929442, -0.368968, 0, 16.2692, -11.6081)
+
+[node name="Player" parent="." node_paths=PackedStringArray("golem") instance=ExtResource("2_rs8ph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.58177, 0)
+hp = 15
+golem = NodePath("")
+
+[node name="GolemSpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_qxivp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+spawnedEntity = ExtResource("4_8n2oo")
+target = NodePath("../Player")
+wait_time = 2.0
+
+[node name="mudGolem" parent="." instance=ExtResource("4_8n2oo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.306, -5.43925)

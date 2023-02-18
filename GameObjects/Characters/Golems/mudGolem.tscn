@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2do6wiqhtn8r"]
+
+[ext_resource type="Script" path="res://GameObjects/Characters/Golems/mudGolem.gd" id="1_gyx5o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_33qn2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7e3bn"]
+
+[node name="mudGolem" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_gyx5o")
+accelRate = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_33qn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7e3bn")

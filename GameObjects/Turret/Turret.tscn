@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://u60rwwhhdo76"]
+
+[ext_resource type="PackedScene" uid="uid://dslcenlyxvhcc" path="res://GameObjects/Guns/Rifle/Rifle.tscn" id="1_wx11j"]
+[ext_resource type="Script" path="res://GameObjects/Turret/Turret.gd" id="1_xo60j"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w0p1b"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3ucho"]
+
+[node name="Turret" type="StaticBody3D"]
+script = ExtResource("1_xo60j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CylinderMesh_w0p1b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_3ucho")
+
+[node name="Rifle" parent="." instance=ExtResource("1_wx11j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00647998, 1.06776, 1.27785)

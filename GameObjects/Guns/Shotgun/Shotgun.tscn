@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://5x8kh7doqrxv"]
+
+[ext_resource type="Script" path="res://GameObjects/Guns/Gun.gd" id="1_eb2kg"]
+[ext_resource type="PackedScene" uid="uid://31kvus6qp1n1" path="res://GameObjects/Guns/Bullets/Bullet.tscn" id="2_upxg8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6om0s"]
+
+[node name="Shotgun" type="Node3D"]
+script = ExtResource("1_eb2kg")
+bulletRef = ExtResource("2_upxg8")
+bulletCount = 5
+spread = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -3.49691e-08, -0.4, 0, 0.8, -1.74846e-08, 0, 0, -0.8)
+mesh = SubResource("CylinderMesh_6om0s")

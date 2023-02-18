@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dslcenlyxvhcc"]
+
+[ext_resource type="Script" path="res://GameObjects/Guns/Gun.gd" id="1_2dsl6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6om0s"]
+
+[node name="Rifle" type="Node3D"]
+script = ExtResource("1_2dsl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -3.49691e-08, -0.4, 0, 0.8, -1.74846e-08, 0, 0, -0.8)
+mesh = SubResource("CylinderMesh_6om0s")
